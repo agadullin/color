@@ -1,6 +1,12 @@
 define(['jquery'], function($){
     var CustomWidget = function () {
     	var self = this;
+
+		const account_id = AMOCRM.constant("account").id;
+		const login = AMOCRM.constant('user').login;
+		const api_key = AMOCRM.constant("user").api_key;
+		const subdomain = AMOCRM.constant('account').subdomain;
+
 		self.getTemplate = function (template, params, callback) {
 			params = (typeof params == 'object') ? params : {};
 			template = template || '';
@@ -112,15 +118,10 @@ define(['jquery'], function($){
 				return true;
 			},
 			onSave: function(){
-				let account = AMOCRM.constant("account").id;
-				let login = AMOCRM.constant('user').login;
-				let api_key = AMOCRM.constant("user").api_key;
-				let subdomain = AMOCRM.constant('account').subdomain;
 				/*let rule = $("#rule").val().trim();
 				let color = $("#color").val().trim();*/
-
 				let data = {
-					"id": account,
+					"account_id": account_id,
 					"login": login,
 					"api_key": api_key,
 					"subdomain": subdomain
@@ -140,21 +141,25 @@ define(['jquery'], function($){
 				
 			},
 			advancedSettings: function () {
-				console.log("advanced");
+				self.getTemplate(
+					'rule',
+					{},
+					(template) => {
+						$('#work-area-colortegs').append(template.render());
+					}
+				)
+				$('#create').on("click",fuc => {console.log("1")});
 			},
 			contacts: {
 					selected: function(){
-						console.log('contacts');
 					}
 				},
 			leads: {
 					selected: function(){
-						console.log('leads');
 					}
 				},
 			tasks: {
 					selected: function(){
-						console.log('tasks');
 					}
 				}
 		};
