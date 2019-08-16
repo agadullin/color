@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic');
+
+
+
+
 .color_tags.oferta {
     margin: 400px 40px 0 0;
 }
@@ -10,10 +15,45 @@
   color: red;
 }
 
-#create {
-    border-style: outset;
+#work-area-colortegs .textH3 {
+    text-align: center;
+    font: italic 2rem "Lobster", sans-serif;
 }
 
-#create:active{
-    border-style: inset;
+#work-area-colortegs .create {
+    display: flex;
+    margin: 20px auto;
+    max-width: 500px;
+    width: 100%;
+    align-items: center;
 }
+
+#work-area-colortegs .create_text {
+    padding: 0 7px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#work-area-colortegs  .create_color {
+    margin-left: 15px;
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#work-area-colortegs a.create_button {
+    display: inline-block;
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    padding: .5em 2em;
+    outline: none;
+    border-width: 2px 0;
+    border-style: solid none;
+    border-color: #FDBE33 #000 #D77206;
+    border-radius: 6px;
+    background: linear-gradient(#F3AE0F, #E38916) #E38916;
+    transition: 0.2s;
+}
+#work-area-colortegs a.create_button:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
+#work-area-colortegs a.create_button:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }

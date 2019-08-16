@@ -7,6 +7,12 @@ define(['jquery'], function($){
 		const api_key = AMOCRM.constant("user").api_key;
 		const subdomain = AMOCRM.constant('account').subdomain;
 
+		var ajaxSend = (options) => {
+			return new Promise((resolve, reject) => {
+		      $.ajax(options).done(resolve).fail(reject);
+			})
+		};
+
 		self.getTemplate = function (template, params, callback) {
 			params = (typeof params == 'object') ? params : {};
 			template = template || '';
@@ -16,7 +22,7 @@ define(['jquery'], function($){
 				base_path: self.params.path,
 				load: callback
 			}, params);
-		}
+		};
 
     	var localCreate = () => {
     		let data = JSON.parse(localStorage.ruleTags);
@@ -146,9 +152,18 @@ define(['jquery'], function($){
 					{},
 					(template) => {
 						$('#work-area-colortegs').append(template.render());
+						$('.create_button').on("click",() => {
+							ajaxSend({
+								url:"http://localhost:2000/add",
+								type: "POST",
+								data: JSON.stringify({
+									rule: $('#work-area-colortegs input[name="rule"]').val().trim(),
+									color: $('#work-area-colortegs input[name="color"]').val().trim(),
+								})
+							})
+						});
 					}
-				)
-				$('#create').on("click",fuc => {console.log("1")});
+				);
 			},
 			contacts: {
 					selected: function(){

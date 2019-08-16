@@ -5,7 +5,7 @@
         "short_description": "widget.short_description",
         "code": "colortegs",
         "secret_key": "45d5d8253dd0f1945018bac7756640b08f7c9dca361ec92c5ccb456790a42d18",
-        "version": "1.2.3",
+        "version": "1.2.9",
         "interface_version": 2,
         "init_once": false,
         "locale":[
