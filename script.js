@@ -156,10 +156,10 @@ define(['jquery'], function($){
 							ajaxSend({
 								url:"http://localhost:2000/add",
 								type: "POST",
-								data: JSON.stringify({
+								data: {
 									rule: $('#work-area-colortegs input[name="rule"]').val().trim(),
 									color: $('#work-area-colortegs input[name="color"]').val().trim(),
-								})
+								}
 							})
 						});
 					}
