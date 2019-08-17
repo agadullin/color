@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic');
 
 
-
-
 .color_tags.oferta {
     margin: 400px 40px 0 0;
 }
@@ -20,7 +18,7 @@
     font: italic 2rem "Lobster", sans-serif;
 }
 
-#work-area-colortegs .create {
+#work-area-colortegs .createRules {
     display: flex;
     margin: 20px auto;
     max-width: 500px;
@@ -28,20 +26,20 @@
     align-items: center;
 }
 
-#work-area-colortegs .create_text {
+#work-area-colortegs .createRules_text {
     padding: 0 7px;
     height: 35px;
     border-radius: 5px;
 }
 
-#work-area-colortegs  .create_color {
+#work-area-colortegs  .createRules_color {
     margin-left: 15px;
     width: 150px;
     height: 35px;
     border-radius: 5px;
 }
 
-#work-area-colortegs a.create_button {
+#work-area-colortegs a.createRules_button {
     display: inline-block;
     margin-left: 15px;
     color: white;
@@ -55,5 +53,5 @@
     background: linear-gradient(#F3AE0F, #E38916) #E38916;
     transition: 0.2s;
 }
-#work-area-colortegs a.create_button:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
-#work-area-colortegs a.create_button:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }
+#work-area-colortegs a.createRules_button:hover { background: linear-gradient(#f5ae00, #f59500) #f5ae00; }
+#work-area-colortegs a.createRules_button:active { background: linear-gradient(#f59500, #f5ae00) #f59500; }

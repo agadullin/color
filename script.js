@@ -61,7 +61,7 @@ define(['jquery'], function($){
 
 		var observer = new MutationObserver ((mutations) => {
 			mutations.forEach((mutation, event) =>{
-				if($(mutation.addedNodes[0]).hasClass('pipeline_leads__item') && (event === 2 || event === 0)){
+				if($(mutation.addedNodes[0]).hasClass('pipeline_leads__info') && (event === 4 || event === 0 || event === 3)){
 					localCreate();
 				}
 			})
@@ -119,13 +119,9 @@ define(['jquery'], function($){
 						});
 					}
 				);
-				//$("#widget_settings__fields_wrapper").append("<input type='text' id='rule'>");
-				//$("#widget_settings__fields_wrapper").append("<input type='color' id='color'>");
 				return true;
 			},
 			onSave: function(){
-				/*let rule = $("#rule").val().trim();
-				let color = $("#color").val().trim();*/
 				let data = {
 					"account_id": account_id,
 					"login": login,
@@ -147,12 +143,14 @@ define(['jquery'], function($){
 				
 			},
 			advancedSettings: function () {
-				self.getTemplate(
+				ajaxSend("http://localhost:2000/getrule").then(resolve =>{
+					self.getTemplate(
 					'rule',
 					{},
 					(template) => {
-						$('#work-area-colortegs').append(template.render());
-						$('.create_button').on("click",() => {
+						console.log(resolve);
+						$('#work-area-colortegs').append(template.render({result:JSON.parse(resolve)}));
+						$('.create_button').on("click",
 							ajaxSend({
 								url:"http://localhost:2000/add",
 								type: "POST",
@@ -161,9 +159,10 @@ define(['jquery'], function($){
 									color: $('#work-area-colortegs input[name="color"]').val().trim(),
 								}
 							})
-						});
+						);
 					}
-				);
+				)
+				})
 			},
 			contacts: {
 					selected: function(){

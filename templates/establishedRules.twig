@@ -1,0 +1,25 @@
+<h3 class="textH3">Установленные правила</h3>
+<div class="container">
+    {% for name in result %}
+
+        <div class="container_element">
+        {% for key, value in name %}
+
+            {% if key != "color" %}
+
+                <p class="ruleElement">{{ value }}</p>
+
+                {% else %}
+
+                <div style="background: {{ value }}" class="colorElement"></div>
+
+            {% endif %}
+
+            <a href="#" class=""></a>
+
+        {% endfor %}
+
+        </div>
+
+    {% endfor%}
+</div>
